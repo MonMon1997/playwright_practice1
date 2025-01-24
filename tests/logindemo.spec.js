@@ -18,7 +18,13 @@ test("demo login test 1", async ({ page }) => {
   await page
     .getByLabel("手機號碼或電子郵件地址", { exact: true })
     .fill("Kendrick");
+
+  await page.waitForSelector('[id="password_step_input"]', { timeout: 5000 });
   await page.locator('[id="password_step_input"]').fill("love me");
+
   await page.pause();
-  await page.getByRole("button", { name: "註冊" }).click();
+
+  const buttons = await page.getByRole("button", { name: "註冊" });
+  await expect(buttons).toHaveCount(1);
+  await buttons.click();
 });

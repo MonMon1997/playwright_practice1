@@ -28,3 +28,10 @@ test("demo login test 1", async ({ page }) => {
   await expect(buttons).toHaveCount(1);
   await buttons.click();
 });
+
+test.only("Demo Login Test", async ({ page }) => {
+  await page.goto("https://www.google.com/");
+  await page.waitForSelector("[name='q']", { timeout: 5000 });
+  await page.getByRole("combobox", { name: "Search" }).fill("Love Kendrick");
+  await page.close();
+});

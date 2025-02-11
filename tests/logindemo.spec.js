@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 
 //Facebook Login Demo test
-test("demo login test 1", async ({ page }) => {
+test.only("demo login test 1", async ({ page }) => {
   await page.goto("https://www.facebook.com/r.php?locale=zh_TW&display=page");
 
   await page.getByLabel("姓氏").fill("Tyson");
@@ -29,7 +29,7 @@ test("demo login test 1", async ({ page }) => {
   await buttons.click();
 });
 
-test.only("Demo Login Test", async ({ page }) => {
+test("Demo Login Test", async ({ page }) => {
   await page.goto("https://www.google.com/");
   await page.waitForSelector("[name='q']", { timeout: 5000 });
   await page.getByRole("combobox", { name: "Search" }).fill("Love Kendrick");
